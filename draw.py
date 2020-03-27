@@ -53,15 +53,15 @@ def n(num, lim):
 
 def add_sphere(polygons, cx, cy, cz, r, steps ):
     points = generate_sphere(cx, cy, cz, r, steps)
-    #steps += 1
+    steps += 1
     p = 0
     l = len(points)
     while p < l:
-        if not (p % (steps - 1) == 0):
+        if not ((p+1) % steps == 0):
             add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
                         points[n(p+1,l)][0],points[n(p+1,l)][1],points[n(p+1,l)][2],
                         points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2])
-        if not (p % steps == 0 or p % (steps - 1) == 0):
+        if not (p % steps == 0):
             add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
                         points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2],
                         points[n(p+steps,l)][0],points[n(p+steps,l)][1],points[n(p+steps,l)][2])
@@ -111,12 +111,21 @@ def add_torus(polygons, cx, cy, cz, r0, r1, steps ):
     p = 0
     l = len(points)
     while p < l:
-        add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
-                    points[n(p+steps,l)][0],points[n(p+steps,l)][1],points[n(p+steps,l)][2],
-                    points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2])
-        add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
-                    points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2],
-                    points[n(p+1,l)][0],points[n(p+1,l)][1],points[n(p+1,l)][2])
+        if (p+1) % steps == 0:
+            #print('here')
+            add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
+                        points[n(p+steps,l)][0],points[n(p+steps,l)][1],points[n(p+steps,l)][2],
+                        points[n(p+1,l)][0],points[n(p+1,l)][1],points[n(p+1,l)][2])
+            add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
+                        points[n(p+1,l)][0],points[n(p+1,l)][1],points[n(p+1,l)][2],
+                        points[n(p-steps+1,l)][0],points[n(p-steps+1,l)][1],points[n(p-steps+1,l)][2])
+        else:
+            add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
+                        points[n(p+steps,l)][0],points[n(p+steps,l)][1],points[n(p+steps,l)][2],
+                        points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2])
+            add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
+                        points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2],
+                        points[n(p+1,l)][0],points[n(p+1,l)][1],points[n(p+1,l)][2])
         p += 1
     
     # lat_start = 0
