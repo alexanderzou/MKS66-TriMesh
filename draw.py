@@ -45,25 +45,44 @@ def add_box( polygons, x, y, z, width, height, depth ):
     add_polygon(polygons,x1,y1,z1,x1,y1,z,x,y1,z)
     add_polygon(polygons,x1,y1,z1,x,y1,z,x,y1,z1)
 
+def n(num, lim):
+    if num < lim:
+        return num
+    else:
+        return -1 * (lim - num)
+
 def add_sphere(polygons, cx, cy, cz, r, steps ):
     points = generate_sphere(cx, cy, cz, r, steps)
+    #steps += 1
+    p = 0
+    l = len(points)
+    while p < l:
+        if not (p % (steps - 1) == 0):
+            add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
+                        points[n(p+1,l)][0],points[n(p+1,l)][1],points[n(p+1,l)][2],
+                        points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2])
+        if not (p % steps == 0 or p % (steps - 1) == 0):
+            add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
+                        points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2],
+                        points[n(p+steps,l)][0],points[n(p+steps,l)][1],points[n(p+steps,l)][2])
+        p += 1
+    
+    # lat_start = 0
+    # lat_stop = steps
+    # longt_start = 0
+    # longt_stop = steps
 
-    lat_start = 0
-    lat_stop = steps
-    longt_start = 0
-    longt_stop = steps
+    # steps+= 1
+    # for lat in range(lat_start, lat_stop):
+        # for longt in range(longt_start, longt_stop+1):
+            # index = lat * steps + longt
 
-    steps+= 1
-    for lat in range(lat_start, lat_stop):
-        for longt in range(longt_start, longt_stop+1):
-            index = lat * steps + longt
-
-            add_edge(polygons, points[index][0],
-                     points[index][1],
-                     points[index][2],
-                     points[index][0]+1,
-                     points[index][1]+1,
-                     points[index][2]+1 )
+            # add_edge(polygons, points[index][0],
+                     # points[index][1],
+                     # points[index][2],
+                     # points[index][0]+1,
+                     # points[index][1]+1,
+                     # points[index][2]+1 )
 
 def generate_sphere( cx, cy, cz, r, steps ):
     points = []
@@ -88,22 +107,33 @@ def generate_sphere( cx, cy, cz, r, steps ):
 
 def add_torus(polygons, cx, cy, cz, r0, r1, steps ):
     points = generate_torus(cx, cy, cz, r0, r1, steps)
+    
+    p = 0
+    l = len(points)
+    while p < l:
+        add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
+                    points[n(p+steps,l)][0],points[n(p+steps,l)][1],points[n(p+steps,l)][2],
+                    points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2])
+        add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
+                    points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2],
+                    points[n(p+1,l)][0],points[n(p+1,l)][1],points[n(p+1,l)][2])
+        p += 1
+    
+    # lat_start = 0
+    # lat_stop = steps
+    # longt_start = 0
+    # longt_stop = steps
 
-    lat_start = 0
-    lat_stop = steps
-    longt_start = 0
-    longt_stop = steps
+    # for lat in range(lat_start, lat_stop):
+        # for longt in range(longt_start, longt_stop):
+            # index = lat * steps + longt
 
-    for lat in range(lat_start, lat_stop):
-        for longt in range(longt_start, longt_stop):
-            index = lat * steps + longt
-
-            add_edge(polygons, points[index][0],
-                     points[index][1],
-                     points[index][2],
-                     points[index][0]+1,
-                     points[index][1]+1,
-                     points[index][2]+1 )
+            # add_edge(polygons, points[index][0],
+                     # points[index][1],
+                     # points[index][2],
+                     # points[index][0]+1,
+                     # points[index][1]+1,
+                     # points[index][2]+1 )
 
 def generate_torus( cx, cy, cz, r0, r1, steps ):
     points = []
