@@ -62,7 +62,7 @@ def add_sphere(polygons, cx, cy, cz, r, steps ):
             add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
                         points[n(p+1,l)][0],points[n(p+1,l)][1],points[n(p+1,l)][2],
                         points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2])
-        if not (p % steps == 0):
+        if not (p % steps == 0 or (p+1) % steps == 0):
             add_polygon(polygons,points[n(p,l)][0],points[n(p,l)][1],points[n(p,l)][2],
                         points[n(p+1+steps,l)][0],points[n(p+1+steps,l)][1],points[n(p+1+steps,l)][2],
                         points[n(p+steps,l)][0],points[n(p+steps,l)][1],points[n(p+steps,l)][2])
