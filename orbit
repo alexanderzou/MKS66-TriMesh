@@ -1,0 +1,259 @@
+sphere
+100 250 0 50
+sphere
+400 250 0 50
+save
+pic001.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic002.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic003.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic004.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic005.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic006.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic007.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic008.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic009.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic010.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic011.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic012.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic013.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic014.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic015.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic016.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic017.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic018.jpg
+ident
+move
+-250 0 0
+apply
+ident
+rotate
+y 10
+apply
+ident
+move
+250 0 0
+apply
+save
+pic019.jpg
+display
